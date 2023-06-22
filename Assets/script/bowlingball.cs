@@ -13,10 +13,10 @@ public class bowlingball : MonoBehaviour
     AudioSource m_MyAudioSource;
     bool isAudioPlayed = false;
     private AudioClip audioClip;
-
+    //bir dakika boyunca ResetPinse basýldýðýnda i++ olabilir . 1 dakika sonra i lere kadar foreach ile diziyi yazýdr
    
-    int[] score=new int[6];
-    
+    int[] score=new int[30];
+    int i; 
     Drop dropScript;
 
     public static InputFeatureUsage<bool> primaryTouch;
@@ -335,6 +335,9 @@ public class bowlingball : MonoBehaviour
             ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             ball.transform.position = ballPosition;
+      
+        score[i]=counter;
+        i++;
         //counter1 += counter;
        /* pin1.count1 = 0;
         pin2.count2 = 0;
