@@ -1,0 +1,119 @@
+newmtl acmat_0
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd Tex2 Bowling.jpg
+newmtl acmat_1
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd image.jpg
+newmtl acmat_2
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 360_F_143447469_L5HA8rTETBY3wgGzXr15ww71HCuf5IjG.jpg
+newmtl acmat_3
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 2022-10-12_220630.jpg
+newmtl acmat_4
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 1259184-old-wood-wall-textur-hintergrund-kostenlos-foto.jpg
+newmtl acmat_5
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 2022-08-19_161952G.jpg
+newmtl acmat_6
+Kd 0 0 0
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0.326316
+map_Kd Blau.jpg
+newmtl acmat_7
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd Blau.jpg
+newmtl acmat_8
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd abstract-red-blurred-background-with-dots-pattern-texture-vector.jpg
+newmtl acmat_9
+Kd 0 0 0
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0.326316
+map_Kd abstract-red-blurred-background-with-dots-pattern-texture-vector.jpg
+newmtl acmat_10
+Kd 0 0 0
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0.326316
+map_Kd 124105-gold-metal-texture-background.jpg
+newmtl acmat_11
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 124105-gold-metal-texture-background.jpg
+newmtl acmat_12
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 2022-07-24_144941a.jpg
+newmtl acmat_13
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 360_F_180888381_rdtPrvoRyUt7QcsWctphVkc0C40dJdJ0.jpg
+newmtl acmat_14
+Kd 0 0 0
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0.326316
+map_Kd 360_F_180888381_rdtPrvoRyUt7QcsWctphVkc0C40dJdJ0.jpg
+newmtl acmat_15
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 2022-09-30_184317.jpg
+newmtl acmat_16
+Kd 1 1 1
+Ka 0.2 0.2 0.2
+Ks 0.2 0.2 0.2
+Ns 128
+Tr 0
+map_Kd 2022-09-23_195326f.jpg

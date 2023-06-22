@@ -1,0 +1,54 @@
+{
+    "name": "VR_Control",
+    "maps": [
+        {
+            "name": "Bowling",
+            "id": "eb814007-6795-4531-a7b0-d4699a9ebf1e",
+            "actions": [
+                {
+                    "name": "ResetBall",
+                    "type": "Button",
+                    "id": "4f3578c7-5dcc-4ec8-adf3-a6c5317922df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ResetPins",
+                    "type": "Button",
+                    "id": "3a5d3ee0-c93f-429c-a937-d18ac2235952",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7dba6abb-42b0-4ba0-9f78-bd7642959fce",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetBall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4119372d-06e5-4821-b53b-f932715a3a13",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetPins",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
