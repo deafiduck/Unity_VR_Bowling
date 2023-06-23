@@ -13,9 +13,14 @@ public class bowlingball : MonoBehaviour
     AudioSource m_MyAudioSource;
     bool isAudioPlayed = false;
     private AudioClip audioClip;
-    //bir dakika boyunca ResetPinse basýldýðýnda i++ olabilir . 1 dakika sonra i lere kadar foreach ile diziyi yazýdr
-   
+    //bir dakika boyunca ResetPinse basýldýðýnda i++ olabilir . 1 dakika sonra i lere kadar foreach ile diziyi yazýdr . 
+
+    float currentTime=0.0f;
+    float startingTime=60.0f;
+
+
     int[] score=new int[30];
+    int[] toplam = new int[2];
     int i; 
     Drop dropScript;
 
@@ -29,7 +34,10 @@ public class bowlingball : MonoBehaviour
     [SerializeField] Text score_5;
     [SerializeField] Text score_6;
 
-   
+    [SerializeField] Text Total;
+
+
+    int k = 0;
     int counter1 = 0;
     public static int counter = 0;
     int sira1 = 0;
@@ -51,7 +59,7 @@ public class bowlingball : MonoBehaviour
     
     void Start()
     {
-        
+        currentTime = startingTime;
         
 
         m_MyAudioSource = GetComponent<AudioSource>();
@@ -118,7 +126,6 @@ public class bowlingball : MonoBehaviour
             }
         }
 
-
     
         
     }
@@ -126,37 +133,7 @@ public class bowlingball : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
     }
-    /* public void IncreaseScore()
-     {
-
-         scoreText.text = "Score" + counter;
-
-     }*/
-
-    /*Siz mesela W tuþuna basýldýðýnda gidecek olan bir araba yaptýnýz diyelim. 
-      Siz bu arabaya velocity ile 200 birimlik bir kuvvet uyguladýnýz diyelim.
-      W tuþuna bastýðýnýz anda araba birden 200 birim ileri ok gibi fýrlayacak 
-      ve elinizi tuþtan çektiðiniz anda ayarladýðýnýz direnç 
-      (Drag, Türkçesi ile hava sürtünmesi de denebilir)
-      etkisiyle yavaþlayýp duracak.
-      Mantýken bu çok saçma bir durum.
-      Bu örnekte AddForce kullanýrsak, W tuþuna bastýðýmýz anda
-      araba 0'dan 200'e birden deðil de yavaþ yavaþ ivmelenerek
-      veyahut hýzlanarak çýkacak ve siz elinizi W'den çekince de
-     ayný oranda ve Drag deðerine baðlý olarak yavaþlayýp duracak.
-     Ýþte kýsaca en basit örnekle böyle anlatýlabilir aradaki farklarý.
-     
-      
-    Velocity> Anlýk tepkiler
-    AddForce> Yavaþ yavaþ hýzlanarak uygulanan kuvvetler.
-
-    addforce türkçesi kuvvet ekle
-    addvelocity türkçesi hýz ekle
-     */
-
-
-    // Update is called once per frame
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "zemin")
@@ -169,7 +146,8 @@ public class bowlingball : MonoBehaviour
     }
     void Update()
     {
-       
+        currentTime -= 1 * Time.deltaTime;
+        Debug.Log(currentTime);
 
         score_1.text = score[0].ToString();
         score_2.text = score[1].ToString();
@@ -178,7 +156,7 @@ public class bowlingball : MonoBehaviour
         score_5.text = score[4].ToString();
         score_6.text = score[5].ToString();
 
-        
+
                 /* float XValue = X.action.ReadValue<float>();
                  handAnimator.SetFloat("primaryButton", XValue);
 
@@ -190,55 +168,20 @@ public class bowlingball : MonoBehaviour
                 counter = pin1.count1 + pin2.count2 + pin3.count3 + pin4.count4 + pin5.count5 + pin6.count6+ pin7.count7+pin8.count8+pin9.count9+pin10.count10;
                // counter = counter * 2;
 
+      
+    }
 
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, force * 5));
-        }
-
-        /*if (Input.GetKeyUp(KeyCode.Space))
-         {
-             GetComponent<Rigidbody>().AddForce(new Vector3(0, force*2, 0));//yavaþlatýyo
-         }*/
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            GetComponent<Rigidbody>().AddForce(new Vector3(2, 0, 0), ForceMode.Impulse);
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            GetComponent<Rigidbody>().AddForce(new Vector3(-1, 0, 0), ForceMode.Impulse);
-        }
-
-
-        if (m_ResetBall.action.IsPressed())
-        {
-            ResetBall();
-            Debug.Log("test ball");
-        }
-
-        if (m_ResetPin.action.IsPressed())
-        {
-            ResetPins();
-            Debug.Log("test pin");
-        }
-
-
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            //counter += counter;
-            Debug.Log(counter);
-
-
-            counter = 0;
-
-            Debug.Log(counter);
+    
+    public void ResetPins()
+    {
+        //if (currentTime >= 0){
             var pins = GameObject.FindGameObjectsWithTag("Pin");
-
-            /*for (int i = 0; i < pins.Length; i++)
+           
+           
+            for (int i = 0; i < pins.Length; i++)
             {
                 //collision.gameObject.transform.parent.gameObject.tag;
                 var pinPhysics = pins[i].GetComponent<Rigidbody>();
-
 
                 pinPhysics.velocity = Vector3.zero;
                 pinPhysics.position = pinPositions[i];
@@ -250,82 +193,40 @@ public class bowlingball : MonoBehaviour
                 ball.transform.position = ballPosition;
                 ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+               
+                
+               /* score[k] = counter;
+                k++;*/
+                pin1.count1 = 0;
+                pin2.count2 = 0;
+                pin3.count3 = 0;
+                pin4.count4 = 0;
+                pin5.count5 = 0;
+                pin6.count6 = 0;
+                pin6.count6 = 0;
+                pin7.count7 = 0;
+                pin8.count8 = 0;
+                pin9.count9 = 0;
+                pin10.count10 = 0;
+            scoreText.text = "Score:" + counter;
 
-            }*/
-            //kullanici1[sira1] = counter;
-
-
-            /*if (sira1 = 11)
+        }
+        //}
+        /*else if(currentTime<=0)
+        {
+            for (int a = 0; a < k; a++)
             {
-                sira1 = 0;
-
+                toplam[0] += score[k];
+                
             }
-            */
-        }
-
-        
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-
-
-
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            Debug.Log("max deger");
-            Debug.Log(max);
-        }
-        if (counter == 6)
-        {
-
-        }
-        if (counter >= 6)
-        {
-            counter = 6;
-        }
-    }
-
-    
-    public void ResetPins()
-    {
+            Total.text = toplam[0].ToString();
+        }*/
        //dropScript.lobut();
         
         //dropScript.yenileme();
        
         // Debug.Log(counter);
-        var pins = GameObject.FindGameObjectsWithTag("Pin");
-
-        for (int i = 0; i < pins.Length; i++)
-        {
-            //collision.gameObject.transform.parent.gameObject.tag;
-            var pinPhysics = pins[i].GetComponent<Rigidbody>();
-
-
-            pinPhysics.velocity = Vector3.zero;
-            pinPhysics.position = pinPositions[i];
-            pinPhysics.rotation = pinRotations[i];
-            pinPhysics.velocity = Vector3.zero;
-            pinPhysics.angularVelocity = Vector3.zero;
-
-            var ball = GameObject.FindGameObjectWithTag("Ball");
-            ball.transform.position = ballPosition;
-            ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            pin1.count1 = 0;
-            pin2.count2 = 0;
-            pin3.count3 = 0;
-            pin4.count4 = 0;
-            pin5.count5 = 0;
-            pin6.count6 = 0;
-            pin6.count6 = 0;
-            pin7.count7 = 0;
-            pin8.count8 = 0;
-            pin9.count9 = 0;
-            pin10.count10 = 0;
-            scoreText.text = "Score:" + counter;
-            
-        }
+        
     }
 
     public void ResetBall()
@@ -351,7 +252,7 @@ public class bowlingball : MonoBehaviour
         pin9.count9 = 0;
         pin10.count10 = 0;*/
         scoreText.text = "Score:"+counter;
-            //Debug.Log(counter1);
+ 
         
     }
 
